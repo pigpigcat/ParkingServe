@@ -1,7 +1,7 @@
 package com.github.core.pojo;
 
 /**
- * @author TonyTonyChopper
+ * @author wulitech
  * @version 1.0
  */
 

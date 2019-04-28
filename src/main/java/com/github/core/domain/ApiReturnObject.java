@@ -3,7 +3,7 @@ package com.github.core.domain;
 import java.io.Serializable;
 
 /**
- * @author TonyTonyChopper
+ * @author wulitech
  */
 public class ApiReturnObject implements Serializable {
 

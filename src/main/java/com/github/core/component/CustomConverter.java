@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 自定义converter配置类
  *
- * @author TonyTonyChopper
+ * @author wulitech
  * @version 1.0
  */
 @Configuration

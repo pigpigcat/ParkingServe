@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.StringJoiner;
 
 /**
- * @author TonyTonyChopper
+ * @author wulitech
  */
 public class User {
     private Integer id;

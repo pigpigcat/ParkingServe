@@ -3,7 +3,7 @@ package com.github.core.mapper;
 import com.github.core.domain.User;
 
 /**
- * @author TonyTonyChopper
+ * @author wulitech
  */
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);

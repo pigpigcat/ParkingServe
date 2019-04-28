@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * request工具类
  *
- * @author TonyTonyChopper
+ * @author wulitech
  */
 public class RequestUtils {
 

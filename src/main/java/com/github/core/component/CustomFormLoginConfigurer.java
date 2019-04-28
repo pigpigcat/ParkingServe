@@ -11,7 +11,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 
 /**
- * @author TonyTonyChopper
+ * @author wulitech
  * @see org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer
  * @param <H>
  */

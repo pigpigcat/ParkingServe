@@ -5,7 +5,7 @@ import org.apache.tomcat.util.codec.binary.Base64;
 import java.util.UUID;
 
 /**
- * @author TonyTonyChopper
+ * @author wulitech
  */
 public class Base64UUIDUtils {
 

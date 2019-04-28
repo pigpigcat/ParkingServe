@@ -4,7 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.github.core.domain.UserInfo;
 
 /**
- * @author TonyTonyChopper
+ * @author wulitech
  */
 public interface UserInfoService {
 

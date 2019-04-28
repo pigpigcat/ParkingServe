@@ -5,7 +5,7 @@ import com.github.core.domain.UserRole;
 import java.util.List;
 
 /**
- * @author TonyTonyChopper
+ * @author wulitech
  */
 public interface UserRoleService {
     int deleteByPrimaryKey(Integer id);

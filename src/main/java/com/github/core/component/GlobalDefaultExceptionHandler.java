@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 全局异常处理器
  *
- * @author TonyTonyChopper
+ * @author wulitech
  * @version 1.0
  */
 @ControllerAdvice

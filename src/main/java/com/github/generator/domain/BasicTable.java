@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author TonyTonyChopper
+ * @author wulitech
  */
 public class BasicTable implements Serializable {
     private Integer id;

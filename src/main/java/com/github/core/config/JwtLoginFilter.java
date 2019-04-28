@@ -30,7 +30,7 @@ import java.util.ArrayList;
  * attemptAuthentication ：接收并解析用户凭证。
  * successfulAuthentication ：用户成功登录后，这个方法会被调用，我们在这个方法里生成token。
  *
- * @author TonyTonyChopper
+ * @author wulitech
  * @version 1.0
  */
 public class JwtLoginFilter extends UsernamePasswordAuthenticationFilter {

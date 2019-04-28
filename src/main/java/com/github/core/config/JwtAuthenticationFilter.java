@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * 从http头的Authorization项读取token数据，然后用jjwt包提供的方法校验token的合法性。
  * 如果校验通过，就认为这是一个取得授权的合法请求
  *
- * @author TonyTonyChopper
+ * @author wulitech
  * @version 1.0
  */
 public class JwtAuthenticationFilter extends BasicAuthenticationFilter {
@@ -52,7 +52,7 @@ public class JwtAuthenticationFilter extends BasicAuthenticationFilter {
         if (token != null) {
             // 解析token
 //            String user = Jwts.parser()
-//                    .setSigningKey("TonyTonyChopper")
+//                    .setSigningKey("wulitech")
 //                    .parseClaimsJws(token.replace(START, ""))
 //                    .getBody()
 ///                    .getSubject();

@@ -24,7 +24,7 @@ import org.springframework.web.filter.CorsFilter;
 /**
  * 自定义Spring Security配置类
  *
- * @author TonyTonyChopper
+ * @author wulitech
  * @version 1.0
  */
 @Configuration

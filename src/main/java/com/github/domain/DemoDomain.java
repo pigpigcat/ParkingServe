@@ -8,7 +8,7 @@ import java.util.StringJoiner;
 /**
  * 测试domain
  *
- * @author TonyTonyChopper
+ * @author wulitech
  * @version 1.0
  */
 public class DemoDomain {

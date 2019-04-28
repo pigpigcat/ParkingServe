@@ -4,7 +4,7 @@ package com.github.core.service;
 import com.github.core.domain.User;
 
 /**
- * @author TonyTonyChopper
+ * @author wulitech
  */
 public interface UserService {
 

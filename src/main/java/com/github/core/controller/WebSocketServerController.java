@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @author TonyTonyChopper
+ * @author wulitech
  */
 @ServerEndpoint("/WebSocket/{userId}")
 @Component

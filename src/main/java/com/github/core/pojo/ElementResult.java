@@ -9,7 +9,7 @@ import java.util.StringJoiner;
 /**
  * element-ui 分页对象
  *
- * @author TonyTonyChopper
+ * @author wulitech
  * @version 1.0
  */
 public class ElementResult implements Serializable {

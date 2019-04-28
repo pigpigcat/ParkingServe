@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.io.IOException;
 
 /**
- * @author TonyTonyChopper
+ * @author wulitech
  */
 @Controller
 @RequestMapping("/CheckCenter")

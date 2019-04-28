@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * 自定义用户验证类
  *
- * @author TonyTonyChopper
+ * @author wulitech
  * @version 1.0
  */
 @Component("customUserDetailServiceImpl")

@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Spring Boot 启动类
  *
- * @author TonyTonyChopper
+ * @author wulitech
  * @version 1.0
  */
 @SpringBootApplication

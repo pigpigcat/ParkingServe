@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * 返回消息对象
  *
- * @author TonyTonyChopper
+ * @author wulitech
  * @version 1.0
  */
 public class Result implements Serializable {

@@ -11,7 +11,7 @@ import java.util.Properties;
 /**
  * Mybatis插件配置类
  *
- * @author TonyTonyChopper
+ * @author wulitech
  * @version 1.0
  */
 @Configuration

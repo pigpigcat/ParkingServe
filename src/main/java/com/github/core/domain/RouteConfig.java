@@ -6,7 +6,7 @@ import java.util.StringJoiner;
 /**
  * 前端动态路由
  *
- * @author TonyTonyChopper
+ * @author wulitech
  */
 public class RouteConfig {
 
