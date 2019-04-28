@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="la.chopper.spring.boot.core.mapper.UserInfoMapper">
-    <resultMap id="BaseResultMap" type="la.chopper.spring.boot.core.domain.UserInfo">
+<mapper namespace="com.github.core.mapper.UserInfoMapper">
+    <resultMap id="BaseResultMap" type="com.github.core.domain.UserInfo">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
         <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
@@ -32,7 +32,7 @@
         from sys_user_info
         where id = #{id,jdbcType=INTEGER}
     </delete>
-    <insert id="insert" parameterType="la.chopper.spring.boot.core.domain.UserInfo">
+    <insert id="insert" parameterType="com.github.core.domain.UserInfo">
         insert into sys_user_info (id,
                                    gmt_create,
                                    gmt_modified,
@@ -62,7 +62,7 @@
                 #{email,jdbcType=VARCHAR},
                 #{tel,jdbcType=VARCHAR})
     </insert>
-    <insert id="insertSelective" parameterType="la.chopper.spring.boot.core.domain.UserInfo">
+    <insert id="insertSelective" parameterType="com.github.core.domain.UserInfo">
         insert into sys_user_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -153,7 +153,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="la.chopper.spring.boot.core.domain.UserInfo">
+    <update id="updateByPrimaryKeySelective" parameterType="com.github.core.domain.UserInfo">
         update sys_user_info
         <set>
             <if test="gmtCreate != null">
@@ -198,7 +198,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="la.chopper.spring.boot.core.domain.UserInfo">
+    <update id="updateByPrimaryKey" parameterType="com.github.core.domain.UserInfo">
         update sys_user_info
         set gmt_create   = #{gmtCreate,jdbcType=TIMESTAMP},
             gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="la.chopper.spring.boot.generator.mapper.SysAuthoritiesMapper" >
-  <resultMap id="BaseResultMap" type="la.chopper.spring.boot.generator.domain.SysAuthorities" >
+<mapper namespace="com.github.generator.mapper.SysAuthoritiesMapper" >
+  <resultMap id="BaseResultMap" type="com.github.generator.domain.SysAuthorities" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
     <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
@@ -21,13 +21,13 @@
     delete from sys_authorities
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="la.chopper.spring.boot.generator.domain.SysAuthorities" >
+  <insert id="insert" parameterType="com.github.generator.domain.SysAuthorities" >
     insert into sys_authorities (id, gmt_create, gmt_modified, 
       user_id, authority)
     values (#{id,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
       #{userId,jdbcType=VARCHAR}, #{authority,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="la.chopper.spring.boot.generator.domain.SysAuthorities" >
+  <insert id="insertSelective" parameterType="com.github.generator.domain.SysAuthorities" >
     insert into sys_authorities
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="la.chopper.spring.boot.generator.domain.SysAuthorities" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.generator.domain.SysAuthorities" >
     update sys_authorities
     <set >
       <if test="gmtCreate != null" >
@@ -82,7 +82,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="la.chopper.spring.boot.generator.domain.SysAuthorities" >
+  <update id="updateByPrimaryKey" parameterType="com.github.generator.domain.SysAuthorities" >
     update sys_authorities
     set gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
       gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
