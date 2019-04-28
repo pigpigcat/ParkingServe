@@ -1,4 +1,4 @@
-package com.github.core.domain;
+package com.github.domain;
 
 import java.util.List;
 

@@ -62,10 +62,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .authorizeRequests().antMatchers(HttpMethod.POST, "/login").permitAll()
                 .and()
                 // "/soraka/**"需要验证
-                .authorizeRequests().antMatchers("/soraka/**").authenticated()
+//                .authorizeRequests().antMatchers("/soraka/**").authenticated()
                 // 其他路径允许匿名访问
-                .anyRequest().permitAll()
-                .and()
+//                .anyRequest().permitAll()
+//                .and()
                 .addFilter(new JwtAuthenticationFilter(authenticationManager(), jwtTokenUtils))
                 //添加自定义未授权和未登录结果返回
                 .exceptionHandling().accessDeniedHandler(restfulAccessDeniedHandler)
