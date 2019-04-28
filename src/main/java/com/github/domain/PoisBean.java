@@ -2,6 +2,9 @@ package com.github.domain;
 
 import java.util.List;
 
+/**
+ * @author wulitech
+ */
 public class PoisBean {
     /**
      * id : B0FFG8BX05

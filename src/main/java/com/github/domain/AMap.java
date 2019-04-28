@@ -2,6 +2,9 @@ package com.github.domain;
 
 import java.util.List;
 
+/**
+ * @author wulitech
+ */
 public class AMap {
     /**
      * status : 1

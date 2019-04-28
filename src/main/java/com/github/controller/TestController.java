@@ -1,6 +1,5 @@
 package com.github.controller;
 
-import com.github.domain.AMap;
 import com.github.domain.Marker;
 import com.github.domain.UniAppMapBean;
 import com.github.util.AMapUtils;
@@ -10,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * @author wulitech
+ */
 @RestController
 @RequestMapping("soraka")
 public class TestController {
