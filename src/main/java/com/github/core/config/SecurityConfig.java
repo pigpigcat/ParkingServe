@@ -58,11 +58,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 基于token，不需要session
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .apply(new CustomFormLoginConfigurer<>(authenticationManager(), jwtTokenUtils)).loginProcessingUrl("/soraka/login")
+                .apply(new CustomFormLoginConfigurer<>(authenticationManager(), jwtTokenUtils)).loginProcessingUrl("/parking/login")
 //                .authorizeRequests().antMatchers(HttpMethod.POST, "/login").permitAll()
                 .and()
-                // "/soraka/**"需要验证
-//                .authorizeRequests().antMatchers("/soraka/**").authenticated()
+                // "/parking/**"需要验证
+//                .authorizeRequests().antMatchers("/parking/**").authenticated()
                 // 其他路径允许匿名访问
 //                .anyRequest().permitAll()
 //                .and()

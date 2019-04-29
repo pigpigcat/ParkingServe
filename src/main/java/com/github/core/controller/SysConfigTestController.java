@@ -15,7 +15,7 @@ import java.util.Date;
 @RestController
 public class SysConfigTestController {
 
-    @GetMapping("soraka/needToLogin")
+    @GetMapping("parking/needToLogin")
     public DemoDomain needToLogin() {
         DemoDomain demoDomain = new DemoDomain();
         demoDomain.setId(1);

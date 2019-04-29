@@ -13,7 +13,7 @@ import java.util.List;
  * @author wulitech
  */
 @RestController
-@RequestMapping("soraka")
+@RequestMapping("parking")
 public class TestController {
 
     @RequestMapping("test")
