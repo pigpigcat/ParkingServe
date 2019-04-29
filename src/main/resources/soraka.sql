@@ -3,15 +3,15 @@
 
  Source Server         : this.pc
  Source Server Type    : MySQL
- Source Server Version : 50724
+ Source Server Version : 50726
  Source Host           : localhost:3306
  Source Schema         : soraka
 
  Target Server Type    : MySQL
- Target Server Version : 50724
+ Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 21/02/2019 23:08:29
+ Date: 29/04/2019 21:24:42
 */
 
 SET NAMES utf8mb4;
@@ -39,7 +39,12 @@ CREATE TABLE `sys_authorities`  (
   `user_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户id',
   `authority` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户角色（默认ROLE_USER）',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_authorities
+-- ----------------------------
+INSERT INTO `sys_authorities` VALUES (1, '2019-02-28 22:22:20.000000', '2019-02-28 22:22:18.000000', 'ms183KVBTWajhpeqUX9+KA', 'ROLE_USER');
 
 -- ----------------------------
 -- Table structure for sys_user
