@@ -2,6 +2,7 @@ package com.github.util;
 
 import com.alibaba.fastjson.JSON;
 import com.github.domain.*;
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
@@ -59,6 +60,7 @@ public class AMapUtils {
             String[] split = poisBean.getLocation().split(",");
             marker.setLongitude(split[0]);
             marker.setLatitude(split[1]);
+            BeanUtils.copyProperties(poisBean, marker);
             markerList.add(marker);
         }
     }

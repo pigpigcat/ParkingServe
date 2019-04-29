@@ -27,6 +27,14 @@ public class Marker {
      */
     private Label label;
 
+    private String address;
+
+    private String pname;
+
+    private String cityname;
+
+    private String adname;
+
     public String getId() {
         return id;
     }
@@ -67,6 +75,38 @@ public class Marker {
         this.label = label;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPname() {
+        return pname;
+    }
+
+    public void setPname(String pname) {
+        this.pname = pname;
+    }
+
+    public String getCityname() {
+        return cityname;
+    }
+
+    public void setCityname(String cityname) {
+        this.cityname = cityname;
+    }
+
+    public String getAdname() {
+        return adname;
+    }
+
+    public void setAdname(String adname) {
+        this.adname = adname;
+    }
+
     public Marker() {
         iconPath = "/static/app-plus/location@3x.png";
     }
@@ -79,6 +119,10 @@ public class Marker {
                 .add("latitude='" + latitude + "'")
                 .add("iconPath='" + iconPath + "'")
                 .add("label=" + label)
+                .add("address='" + address + "'")
+                .add("pname='" + pname + "'")
+                .add("cityname='" + cityname + "'")
+                .add("adname='" + adname + "'")
                 .toString();
     }
 }
