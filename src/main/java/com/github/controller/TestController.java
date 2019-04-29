@@ -3,6 +3,7 @@ package com.github.controller;
 import com.github.domain.Marker;
 import com.github.domain.UniAppMapBean;
 import com.github.util.AMapUtils;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,8 +22,8 @@ public class TestController {
         return "test";
     }
 
-    @RequestMapping("getParkingInfo")
+    @PostMapping("getParkingInfo")
     public List<Marker> getParkingInfo(@RequestBody UniAppMapBean uniAppMapBean) {
-        return AMapUtils.pOIAround(uniAppMapBean.getLongitude() + "," + uniAppMapBean.getLatitude());
+        return AMapUtils.poiAround(uniAppMapBean.getLongitude() + "," + uniAppMapBean.getLatitude());
     }
 }

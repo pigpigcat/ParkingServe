@@ -1,10 +1,7 @@
 package com.github.util;
 
 import com.alibaba.fastjson.JSON;
-import com.github.domain.AMap;
-import com.github.domain.Label;
-import com.github.domain.Marker;
-import com.github.domain.PoisBean;
+import com.github.domain.*;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
@@ -19,13 +16,10 @@ import java.util.*;
 public class AMapUtils {
 
     private static final String URL_PREFIX = "https://restapi.amap.com";
-    private static final String URL_SUFFIX = "/v3/place/around";
     private static final String KEY = "a8688bbe69137c037bfa8b351cb0ef11";
     private static final String KEY_WORDS = "停车场";
     private static final String TYPES = "停车场相关";
-    private static final String CITY = "天津";
     private static final String CITY_LIMIT = "true";
-//    private static final String LOCATION = "117.200983,39.084158";
 
     private static RestTemplate restTemplate;
 
@@ -33,10 +27,20 @@ public class AMapUtils {
         restTemplate = new RestTemplate();
     }
 
+    private static Regeo poiRegeo(String location) {
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(URL_PREFIX + "/v3/geocode/regeo?location="
+                + location + "&key=" + KEY, String.class);
+        String body = responseEntity.getBody();
+        return JSON.parseObject(body, Regeo.class);
+    }
 
-    public static List<Marker> pOIAround(String location) {
-        ResponseEntity<String> responseEntity = restTemplate.getForEntity(URL_PREFIX + URL_SUFFIX + "?keywords="
-                + KEY_WORDS + "&key=" + KEY + "&types=" + TYPES + "&city=" + CITY + "&=citylimit" + CITY_LIMIT + "&location=" + location, String.class);
+    public static List<Marker> poiAround(String location) {
+        Regeo regeo = poiRegeo(location);
+        AddressComponentBean addressComponentBean = regeo.getRegeocode().getAddressComponent();
+        // 行政区code
+        String adcode = addressComponentBean.getAdcode();
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(URL_PREFIX + "/v3/place/around?keywords="
+                + KEY_WORDS + "&key=" + KEY + "&types=" + TYPES + "&city=" + adcode + "&=citylimit" + CITY_LIMIT + "&location=" + location, String.class);
         String body = responseEntity.getBody();
         AMap aMap = JSON.parseObject(body, AMap.class);
         List<PoisBean> poisBeans = Objects.requireNonNull(aMap).getPois();
