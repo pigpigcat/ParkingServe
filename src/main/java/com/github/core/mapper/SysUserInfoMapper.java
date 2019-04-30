@@ -1,4 +1,4 @@
-package com.github.domain.mapper;
+package com.github.core.mapper;
 
 import com.github.util.generator.domain.SysUserInfo;
 
