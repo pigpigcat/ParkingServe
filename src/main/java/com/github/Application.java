@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @version 1.0
  */
 @SpringBootApplication
-@MapperScans({@MapperScan("com.github.core.mapper"), @MapperScan("com.github.mapper")})
+@MapperScans({@MapperScan("com.github.core.mapper"), @MapperScan("com.github.domain.mapper")})
 public class Application {
 
     public static void main(String[] args) {
