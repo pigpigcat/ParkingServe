@@ -15,7 +15,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("parking")
-public class TestController {
+public class ParkingController {
 
     @RequestMapping("ping")
     public String test() {
