@@ -1,6 +1,6 @@
-package com.github.generator.mapper;
+package com.github.util.generator.mapper;
 
-import com.github.generator.domain.BasicTable;
+import com.github.util.generator.domain.BasicTable;
 
 public interface BasicTableMapper {
     int deleteByPrimaryKey(Integer id);

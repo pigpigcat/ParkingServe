@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.github.domain.mapper.OrderInfoMapper">
+    <resultMap id="BaseResultMap" type="com.github.domain.OrderInfo">
+        <id column="order_id" property="orderId" jdbcType="INTEGER"/>
+        <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
+        <result column="gmt_pay" property="gmtPay" jdbcType="TIMESTAMP"/>
+        <result column="user_id" property="userId" jdbcType="VARCHAR"/>
+        <result column="parking_name" property="parkingName" jdbcType="VARCHAR"/>
+        <result column="parking_id" property="parkingId" jdbcType="VARCHAR"/>
+        <result column="parking_place" property="parkingPlace" jdbcType="BIT"/>
+        <result column="price" property="price" jdbcType="VARCHAR"/>
+        <result column="state" property="state" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        order_id, gmt_create, gmt_pay, user_id, parking_name, parking_id, parking_place,
+        price, state
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from order_info
+        where order_id = #{orderId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from order_info
+        where order_id = #{orderId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.github.domain.OrderInfo">
+        insert into order_info (order_id,
+                                gmt_create,
+                                gmt_pay,
+                                user_id,
+                                parking_name,
+                                parking_id,
+                                parking_place,
+                                price,
+                                state)
+        values (#{orderId,jdbcType=INTEGER},
+                #{gmtCreate,jdbcType=TIMESTAMP},
+                #{gmtPay,jdbcType=TIMESTAMP},
+                #{userId,jdbcType=VARCHAR},
+                #{parkingName,jdbcType=VARCHAR},
+                #{parkingId,jdbcType=VARCHAR},
+                #{parkingPlace,jdbcType=BIT},
+                #{price,jdbcType=VARCHAR},
+                #{state,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.github.domain.OrderInfo">
+        insert into order_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderId != null">
+                order_id,
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create,
+            </if>
+            <if test="gmtPay != null">
+                gmt_pay,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="parkingName != null">
+                parking_name,
+            </if>
+            <if test="parkingId != null">
+                parking_id,
+            </if>
+            <if test="parkingPlace != null">
+                parking_place,
+            </if>
+            <if test="price != null">
+                price,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderId != null">
+                #{orderId,jdbcType=INTEGER},
+            </if>
+            <if test="gmtCreate != null">
+                #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtPay != null">
+                #{gmtPay,jdbcType=TIMESTAMP},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="parkingName != null">
+                #{parkingName,jdbcType=VARCHAR},
+            </if>
+            <if test="parkingId != null">
+                #{parkingId,jdbcType=VARCHAR},
+            </if>
+            <if test="parkingPlace != null">
+                #{parkingPlace,jdbcType=BIT},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=VARCHAR},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.github.domain.OrderInfo">
+        update order_info
+        <set>
+            <if test="gmtCreate != null">
+                gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtPay != null">
+                gmt_pay = #{gmtPay,jdbcType=TIMESTAMP},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="parkingName != null">
+                parking_name = #{parkingName,jdbcType=VARCHAR},
+            </if>
+            <if test="parkingId != null">
+                parking_id = #{parkingId,jdbcType=VARCHAR},
+            </if>
+            <if test="parkingPlace != null">
+                parking_place = #{parkingPlace,jdbcType=BIT},
+            </if>
+            <if test="price != null">
+                price = #{price,jdbcType=VARCHAR},
+            </if>
+            <if test="state != null">
+                state = #{state,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where order_id = #{orderId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.github.domain.OrderInfo">
+        update order_info
+        set gmt_create    = #{gmtCreate,jdbcType=TIMESTAMP},
+            gmt_pay       = #{gmtPay,jdbcType=TIMESTAMP},
+            user_id       = #{userId,jdbcType=VARCHAR},
+            parking_name  = #{parkingName,jdbcType=VARCHAR},
+            parking_id    = #{parkingId,jdbcType=VARCHAR},
+            parking_place = #{parkingPlace,jdbcType=BIT},
+            price         = #{price,jdbcType=VARCHAR},
+            state         = #{state,jdbcType=VARCHAR}
+        where order_id = #{orderId,jdbcType=INTEGER}
+    </update>
+</mapper>

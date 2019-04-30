@@ -1,4 +1,4 @@
-package com.github.controller;
+package com.github.web;
 
 import com.github.domain.Marker;
 import com.github.domain.UniAppMapBean;

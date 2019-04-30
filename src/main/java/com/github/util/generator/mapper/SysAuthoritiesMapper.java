@@ -1,6 +1,6 @@
-package com.github.generator.mapper;
+package com.github.util.generator.mapper;
 
-import com.github.generator.domain.SysAuthorities;
+import com.github.util.generator.domain.SysAuthorities;
 
 public interface SysAuthoritiesMapper {
     int deleteByPrimaryKey(Integer id);

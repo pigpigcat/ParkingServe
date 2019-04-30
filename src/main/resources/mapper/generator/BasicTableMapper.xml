@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.github.generator.mapper.BasicTableMapper" >
-  <resultMap id="BaseResultMap" type="com.github.generator.domain.BasicTable" >
+<mapper namespace="com.github.util.generator.mapper.BasicTableMapper" >
+  <resultMap id="BaseResultMap" type="com.github.util.generator.domain.BasicTable" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
     <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
@@ -19,13 +19,13 @@
     delete from basic_table
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.github.generator.domain.BasicTable" >
+  <insert id="insert" parameterType="com.github.util.generator.domain.BasicTable" >
     insert into basic_table (id, gmt_create, gmt_modified
       )
     values (#{id,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.github.generator.domain.BasicTable" >
+  <insert id="insertSelective" parameterType="com.github.util.generator.domain.BasicTable" >
     insert into basic_table
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -50,7 +50,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.github.generator.domain.BasicTable" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.util.generator.domain.BasicTable" >
     update basic_table
     <set >
       <if test="gmtCreate != null" >
@@ -62,7 +62,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.github.generator.domain.BasicTable" >
+  <update id="updateByPrimaryKey" parameterType="com.github.util.generator.domain.BasicTable" >
     update basic_table
     set gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
       gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}

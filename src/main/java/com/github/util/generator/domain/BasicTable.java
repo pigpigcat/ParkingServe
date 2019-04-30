@@ -1,4 +1,4 @@
-package com.github.generator.domain;
+package com.github.util.generator.domain;
 
 import java.io.Serializable;
 import java.util.Date;

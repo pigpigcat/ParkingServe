@@ -1,6 +1,6 @@
-package com.github.generator.mapper;
+package com.github.util.generator.mapper;
 
-import com.github.generator.domain.SysUserInfo;
+import com.github.util.generator.domain.SysUserInfo;
 
 public interface SysUserInfoMapper {
     int deleteByPrimaryKey(Integer id);
