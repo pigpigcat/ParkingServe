@@ -3,9 +3,6 @@ package com.github.util.generator.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * @author wulitech
- */
 public class SysUserInfo implements Serializable {
     private Integer id;
 
@@ -34,6 +31,10 @@ public class SysUserInfo implements Serializable {
     private String email;
 
     private String tel;
+
+    private String licensePlate;
+
+    private String vehicleType;
 
     private static final long serialVersionUID = 1L;
 
@@ -149,6 +150,22 @@ public class SysUserInfo implements Serializable {
         this.tel = tel == null ? null : tel.trim();
     }
 
+    public String getLicensePlate() {
+        return licensePlate;
+    }
+
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate == null ? null : licensePlate.trim();
+    }
+
+    public String getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(String vehicleType) {
+        this.vehicleType = vehicleType == null ? null : vehicleType.trim();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -169,6 +186,8 @@ public class SysUserInfo implements Serializable {
         sb.append(", qq=").append(qq);
         sb.append(", email=").append(email);
         sb.append(", tel=").append(tel);
+        sb.append(", licensePlate=").append(licensePlate);
+        sb.append(", vehicleType=").append(vehicleType);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
