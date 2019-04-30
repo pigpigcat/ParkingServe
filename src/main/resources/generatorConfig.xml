@@ -24,7 +24,7 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
         <!--生成Model类存放位置 -->
-        <javaModelGenerator targetPackage="la.chopper.spring.boot.generator.domain"
+        <javaModelGenerator targetPackage="com.github.generator.domain"
                             targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
@@ -36,7 +36,7 @@
         </sqlMapGenerator>
         <!--生成Dao类存放位置 -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="la.chopper.spring.boot.generator.mapper" targetProject="src/main/java">
+                             targetPackage="com.github.generator.mapper" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!-- 生成全部表tableName设为% -->
