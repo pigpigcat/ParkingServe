@@ -16,10 +16,12 @@
         <result column="qq" property="qq" jdbcType="VARCHAR"/>
         <result column="email" property="email" jdbcType="VARCHAR"/>
         <result column="tel" property="tel" jdbcType="VARCHAR"/>
+        <result column="license_plate" property="licensePlate" jdbcType="VARCHAR"/>
+        <result column="vehicle_type" property="vehicleType" jdbcType="VARCHAR"/>
     </resultMap>
     <sql id="Base_Column_List">
         id, gmt_create, gmt_modified, user_id, user_name, gender, age, birthday, address,
-        user_type, real_name, qq, email, tel
+        user_type, real_name, qq, email, tel, license_plate, vehicle_type
     </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
@@ -46,7 +48,9 @@
                                    real_name,
                                    qq,
                                    email,
-                                   tel)
+                                   tel,
+                                   license_plate,
+                                   vehicle_type)
         values (#{id,jdbcType=INTEGER},
                 CURRENT_TIMESTAMP,
                 CURRENT_TIMESTAMP,
@@ -60,7 +64,9 @@
                 #{realName,jdbcType=VARCHAR},
                 #{qq,jdbcType=VARCHAR},
                 #{email,jdbcType=VARCHAR},
-                #{tel,jdbcType=VARCHAR})
+                #{tel,jdbcType=VARCHAR},
+                #{licensePlate,jdbcType=VARCHAR},
+                #{vehicleType,jdbcType=VARCHAR})
     </insert>
     <insert id="insertSelective" parameterType="com.github.core.domain.UserInfo">
         insert into sys_user_info
@@ -107,6 +113,12 @@
             <if test="tel != null">
                 tel,
             </if>
+            <if test="licensePlate != null">
+                license_plate,
+            </if>
+            <if test="vehicleType != null">
+                vehicle_type,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -150,6 +162,12 @@
             </if>
             <if test="tel != null">
                 #{tel,jdbcType=VARCHAR},
+            </if>
+            <if test="licensePlate != null">
+                #{licensePlate,jdbcType=VARCHAR},
+            </if>
+            <if test="vehicleType != null">
+                #{vehicleType,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>
@@ -195,25 +213,33 @@
             <if test="tel != null">
                 tel = #{tel,jdbcType=VARCHAR},
             </if>
+            <if test="licensePlate != null">
+                licensePlate = #{licensePlate,jdbcType=VARCHAR},
+            </if>
+            <if test="vehicleType != null">
+                vehicleType = #{vehicleType,jdbcType=VARCHAR},
+            </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.github.core.domain.UserInfo">
         update sys_user_info
-        set gmt_create   = #{gmtCreate,jdbcType=TIMESTAMP},
-            gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-            user_id      = #{userId,jdbcType=VARCHAR},
-            user_name    = #{userName,jdbcType=VARCHAR},
-            gender       = #{gender,jdbcType=BIT},
-            age          = #{age,jdbcType=INTEGER},
-            birthday     = #{birthday,jdbcType=TIMESTAMP},
-            address      = #{address,jdbcType=VARCHAR},
-            user_type    = #{userType,jdbcType=VARCHAR},
-            real_name    = #{realName,jdbcType=VARCHAR},
-            qq           = #{qq,jdbcType=VARCHAR},
-            email        = #{email,jdbcType=VARCHAR},
-            tel          = #{tel,jdbcType=VARCHAR}
-        where id = #{id,jdbcType=INTEGER}
+        set gmt_create    = #{gmtCreate,jdbcType=TIMESTAMP},
+            gmt_modified  = #{gmtModified,jdbcType=TIMESTAMP},
+            user_id       = #{userId,jdbcType=VARCHAR},
+            user_name     = #{userName,jdbcType=VARCHAR},
+            gender        = #{gender,jdbcType=BIT},
+            age           = #{age,jdbcType=INTEGER},
+            birthday      = #{birthday,jdbcType=TIMESTAMP},
+            address       = #{address,jdbcType=VARCHAR},
+            user_type     = #{userType,jdbcType=VARCHAR},
+            real_name     = #{realName,jdbcType=VARCHAR},
+            qq            = #{qq,jdbcType=VARCHAR},
+            email         = #{email,jdbcType=VARCHAR},
+            tel           = #{tel,jdbcType=VARCHAR},
+            license_plate = #{licensePlate,jdbcType=VARCHAR},
+            vehicle_type  = #{vehicleType,jdbcType=VARCHAR}
+            where id = #{id,jdbcType=INTEGER}
     </update>
 
     <select id="queryAll" resultMap="BaseResultMap">

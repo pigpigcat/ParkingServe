@@ -41,6 +41,10 @@ public class UserInfo {
 
     private String password;
 
+    private String licensePlate;
+
+    private String vehicleType;
+
     public Integer getId() {
         return id;
     }
@@ -161,6 +165,22 @@ public class UserInfo {
         this.password = password == null ? null : password.trim();
     }
 
+    public String getLicensePlate() {
+        return licensePlate;
+    }
+
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate;
+    }
+
+    public String getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(String vehicleType) {
+        this.vehicleType = vehicleType;
+    }
+
     @Override
     public String toString() {
         return new StringJoiner(", ", UserInfo.class.getSimpleName() + "[", "]")
@@ -179,6 +199,8 @@ public class UserInfo {
                 .add("email='" + email + "'")
                 .add("tel='" + tel + "'")
                 .add("password='" + password + "'")
+                .add("licensePlate='" + licensePlate + "'")
+                .add("vehicleType='" + vehicleType + "'")
                 .toString();
     }
 }
