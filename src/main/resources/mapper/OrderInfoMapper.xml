@@ -4,11 +4,11 @@
     <resultMap id="BaseResultMap" type="com.github.domain.OrderInfo">
         <id column="order_id" property="orderId" jdbcType="INTEGER"/>
         <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
-        <result column="gmt_pay" property="gmtPay" jdbcType="TIMESTAMP"/>
+        <result column="gmt_pay" property="gmtPay" jdbcType="VARCHAR"/>
         <result column="user_id" property="userId" jdbcType="VARCHAR"/>
         <result column="parking_name" property="parkingName" jdbcType="VARCHAR"/>
         <result column="parking_id" property="parkingId" jdbcType="VARCHAR"/>
-        <result column="parking_place" property="parkingPlace" jdbcType="BIT"/>
+        <result column="parking_place" property="parkingPlace" jdbcType="VARCHAR"/>
         <result column="price" property="price" jdbcType="VARCHAR"/>
         <result column="state" property="state" jdbcType="VARCHAR"/>
     </resultMap>
@@ -22,6 +22,13 @@
         from order_info
         where order_id = #{orderId,jdbcType=INTEGER}
     </select>
+    <select id="query_qrCode" resultType="com.github.domain.OrderInfo" parameterType="com.github.domain.OrderInfo">
+        select * from order_info where order_id = #{orderId,jdbcType=INTEGER}
+    </select>
+    <update id="orderPay"  parameterType="com.github.domain.OrderInfo">
+        update order_info set state= #{state,jdbcType=VARCHAR},gmt_pay= #{gmtPay,jdbcType=VARCHAR}
+        ,qr_code = #{qrCode,jdbcType=VARCHAR} where order_id = #{orderId,jdbcType=INTEGER} 
+    </update>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete
         from order_info
@@ -39,11 +46,11 @@
                                 state)
         values (#{orderId,jdbcType=INTEGER},
                 #{gmtCreate,jdbcType=TIMESTAMP},
-                #{gmtPay,jdbcType=TIMESTAMP},
+                #{gmtPay,jdbcType=VARCHAR},
                 #{userId,jdbcType=VARCHAR},
                 #{parkingName,jdbcType=VARCHAR},
                 #{parkingId,jdbcType=VARCHAR},
-                #{parkingPlace,jdbcType=BIT},
+                #{parkingPlace,jdbcType=VARCHAR},
                 #{price,jdbcType=VARCHAR},
                 #{state,jdbcType=VARCHAR})
     </insert>
@@ -86,7 +93,7 @@
                 #{gmtCreate,jdbcType=TIMESTAMP},
             </if>
             <if test="gmtPay != null">
-                #{gmtPay,jdbcType=TIMESTAMP},
+                #{gmtPay,jdbcType=VARCHAR},
             </if>
             <if test="userId != null">
                 #{userId,jdbcType=VARCHAR},
@@ -98,7 +105,7 @@
                 #{parkingId,jdbcType=VARCHAR},
             </if>
             <if test="parkingPlace != null">
-                #{parkingPlace,jdbcType=BIT},
+                #{parkingPlace,jdbcType=VARCHAR},
             </if>
             <if test="price != null">
                 #{price,jdbcType=VARCHAR},
@@ -115,7 +122,7 @@
                 gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
             </if>
             <if test="gmtPay != null">
-                gmt_pay = #{gmtPay,jdbcType=TIMESTAMP},
+                gmt_pay = #{gmtPay,jdbcType=VARCHAR},
             </if>
             <if test="userId != null">
                 user_id = #{userId,jdbcType=VARCHAR},
@@ -127,7 +134,7 @@
                 parking_id = #{parkingId,jdbcType=VARCHAR},
             </if>
             <if test="parkingPlace != null">
-                parking_place = #{parkingPlace,jdbcType=BIT},
+                parking_place = #{parkingPlace,jdbcType=VARCHAR},
             </if>
             <if test="price != null">
                 price = #{price,jdbcType=VARCHAR},
@@ -141,11 +148,11 @@
     <update id="updateByPrimaryKey" parameterType="com.github.domain.OrderInfo">
         update order_info
         set gmt_create    = #{gmtCreate,jdbcType=TIMESTAMP},
-            gmt_pay       = #{gmtPay,jdbcType=TIMESTAMP},
+            gmt_pay       = #{gmtPay,jdbcType=VARCHAR},
             user_id       = #{userId,jdbcType=VARCHAR},
             parking_name  = #{parkingName,jdbcType=VARCHAR},
             parking_id    = #{parkingId,jdbcType=VARCHAR},
-            parking_place = #{parkingPlace,jdbcType=BIT},
+            parking_place = #{parkingPlace,jdbcType=VARCHAR},
             price         = #{price,jdbcType=VARCHAR},
             state         = #{state,jdbcType=VARCHAR}
         where order_id = #{orderId,jdbcType=INTEGER}

@@ -42,14 +42,16 @@ CREATE TABLE `order_info` (
   `order_id`      int(11)     NOT NULL AUTO_INCREMENT
   COMMENT '主键',
   `gmt_create`    datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `gmt_pay`       datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `user_id`       varchar(50) NOT NULL
+  `gmt_pay`       varchar(50)     DEFAULT NULL,
+  `user_id`       varchar(50) NOT NULL，
   COMMENT '用户id',
+  `qr_code`       BLOB,
+  COMMENT '二维码',
   `parking_name`  varchar(32) NOT NULL DEFAULT ''
   COMMENT '停车场名',
   `parking_id`    varchar(50) NOT NULL
   COMMENT '停车场id',
-  `parking_place` tinyint(1)  NOT NULL
+  `parking_place` varchar(50)  NOT NULL
   COMMENT '车位',
   `price`         varchar(32)          DEFAULT NULL
   COMMENT '价格',

@@ -8,7 +8,7 @@ public class OrderInfo implements Serializable {
 
     private Date gmtCreate;
 
-    private Date gmtPay;
+    private String gmtPay;
 
     private String userId;
 
@@ -16,13 +16,23 @@ public class OrderInfo implements Serializable {
 
     private String parkingId;
 
-    private Boolean parkingPlace;
+    private String parkingPlace;
 
     private String price;
 
     private String state;
+    
+    private String qrCode;
 
-    private static final long serialVersionUID = 1L;
+    public String getQrCode() {
+		return qrCode;
+	}
+
+	public void setQr_code(String qrCode) {
+		this.qrCode = qrCode;
+	}
+
+	private static final long serialVersionUID = 1L;
 
     public Integer getOrderId() {
         return orderId;
@@ -40,11 +50,11 @@ public class OrderInfo implements Serializable {
         this.gmtCreate = gmtCreate;
     }
 
-    public Date getGmtPay() {
+    public String getGmtPay() {
         return gmtPay;
     }
 
-    public void setGmtPay(Date gmtPay) {
+    public void setGmtPay(String gmtPay) {
         this.gmtPay = gmtPay;
     }
 
@@ -72,11 +82,11 @@ public class OrderInfo implements Serializable {
         this.parkingId = parkingId == null ? null : parkingId.trim();
     }
 
-    public Boolean getParkingPlace() {
+    public String getParkingPlace() {
         return parkingPlace;
     }
 
-    public void setParkingPlace(Boolean parkingPlace) {
+    public void setParkingPlace(String parkingPlace) {
         this.parkingPlace = parkingPlace;
     }
 

@@ -14,4 +14,8 @@ public interface OrderInfoMapper {
     int updateByPrimaryKeySelective(OrderInfo record);
 
     int updateByPrimaryKey(OrderInfo record);
+    
+    void orderPay(OrderInfo orderInfo);
+    
+    OrderInfo query_qrCode(OrderInfo orderInfo);
 }
