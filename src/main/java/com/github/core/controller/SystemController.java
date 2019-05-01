@@ -41,27 +41,28 @@ public class SystemController {
 
     @PostMapping("signUp")
     public Result signUp(@RequestBody UserInfo userInfo) {
-        User user = new User();
-        UserRole userRole = new UserRole();
-        user.setEnabled(true);
-        String userId = Base64UUIDUtils.randomID();
-        user.setPassword(bCryptPasswordEncoder.encode(userInfo.getPassword()));
-        user.setUserId(userId);
-        userInfo.setUserId(userId);
-        userRole.setUserId(userId);
-        userRole.setAuthority("ROLE_USER");
-        int i = userService.signUp(user);
-        int j = userInfoService.signUp(userInfo);
-        int k = userRoleService.insert(userRole);
-        if (i > 0 && j > 0 && k > 0) {
-            Result result = new Result();
-            result.setResultCode(ResultCode.OK);
-            result.setMsg("注册成功！");
-            return result;
-        } else {
-            Result result = new Result();
-            result.setMsg("注册失败！");
-            return result;
-        }
+//        User user = new User();
+//        UserRole userRole = new UserRole();
+//        user.setEnabled(true);
+//        String userId = Base64UUIDUtils.randomID();
+//        user.setPassword(bCryptPasswordEncoder.encode(userInfo.getPassword()));
+//        user.setUserId(userId);
+//        userInfo.setUserId(userId);
+//        userRole.setUserId(userId);
+//        userRole.setAuthority("ROLE_USER");
+//        int i = userService.signUp(user);
+////        int j = userInfoService.signUp(userInfo);
+//        int k = userRoleService.insert(userRole);
+//        if (i > 0 && j > 0 && k > 0) {
+//            Result result = new Result();
+//            result.setResultCode(ResultCode.OK);
+//            result.setMsg("注册成功！");
+//            return result;
+//        } else {
+//            Result result = new Result();
+//            result.setMsg("注册失败！");
+//            return result;
+//        }
+        return null;
     }
 }

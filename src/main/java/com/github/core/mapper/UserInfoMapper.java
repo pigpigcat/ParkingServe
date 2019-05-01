@@ -30,4 +30,7 @@ public interface UserInfoMapper {
     List<UserInfo> queryAll();
 
     UserInfo getUserByName(String userName);
+
+    UserInfo signOn(UserInfo userInfo);
+
 }

@@ -1,5 +1,6 @@
 package com.github.core.service;
 
+import com.github.core.pojo.Result;
 import com.github.pagehelper.PageInfo;
 import com.github.core.domain.UserInfo;
 
@@ -18,7 +19,7 @@ public interface UserInfoService {
      * @param userInfo
      * @return
      */
-    int signOn(UserInfo userInfo);
+    Result signOn(UserInfo userInfo);
 
     /**
      * 注册
@@ -26,5 +27,5 @@ public interface UserInfoService {
      * @param userInfo
      * @return
      */
-    int signUp(UserInfo userInfo);
+    Result signUp(UserInfo userInfo);
 }

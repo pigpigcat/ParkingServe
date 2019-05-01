@@ -50,6 +50,7 @@ public class Result implements Serializable {
     public static Result success(Object data) {
         Result result = new Result();
         result.setResultCode(ResultCode.OK);
+        result.setData(data);
         return result;
     }
 
@@ -98,4 +99,12 @@ public class Result implements Serializable {
         return serialVersionUID;
     }
 
+    @Override
+    public String toString() {
+        return "Result{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", data=" + data +
+                '}';
+    }
 }

@@ -239,7 +239,7 @@
             tel           = #{tel,jdbcType=VARCHAR},
             license_plate = #{licensePlate,jdbcType=VARCHAR},
             vehicle_type  = #{vehicleType,jdbcType=VARCHAR}
-            where id = #{id,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
     </update>
 
     <select id="queryAll" resultMap="BaseResultMap">
@@ -254,4 +254,14 @@
         from sys_user_info
         where user_name = #{user_name,jdbcType=VARCHAR}
     </select>
+
+    <select id="signOn" resultMap="BaseResultMap" parameterType="com.github.core.domain.UserInfo">
+        select *
+        from sys_user_info,
+             sys_user
+        where sys_user.user_id = sys_user_info.user_id
+          and tel = #{tel,jdbcType=VARCHAR}
+          and password = #{password,jdbcType=VARCHAR}
+    </select>
+
 </mapper>
