@@ -21,16 +21,17 @@ USE `soraka`;
 
 DROP TABLE IF EXISTS `basic_table`;
 
-CREATE TABLE `basic_table` (
-  `id`           int(11)  NOT NULL AUTO_INCREMENT
-  COMMENT '主键',
-  `gmt_create`   datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `gmt_modified` datetime          DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`) USING BTREE
+CREATE TABLE `basic_table`
+(
+    `id`           int(11)  NOT NULL AUTO_INCREMENT
+        COMMENT '主键',
+    `gmt_create`   datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `gmt_modified` datetime          DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`) USING BTREE
 )
-  ENGINE = InnoDB
-  DEFAULT CHARSET = utf8
-  ROW_FORMAT = DYNAMIC;
+    ENGINE = InnoDB
+    DEFAULT CHARSET = utf8
+    ROW_FORMAT = DYNAMIC;
 
 /*Data for the table `basic_table` */
 
@@ -38,32 +39,33 @@ CREATE TABLE `basic_table` (
 
 DROP TABLE IF EXISTS `order_info`;
 
-CREATE TABLE `order_info` (
-  `order_id`      int(11)     NOT NULL AUTO_INCREMENT
-  COMMENT '主键',
-  `gmt_create`    datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `gmt_pay`       varchar(50)     DEFAULT NULL,
-  `user_id`       varchar(50) NOT NULL，
-  COMMENT '用户id',
-  `qr_code`       BLOB,
-  COMMENT '二维码',
-  `parking_name`  varchar(32) NOT NULL DEFAULT ''
-  COMMENT '停车场名',
-  `parking_id`    varchar(50) NOT NULL
-  COMMENT '停车场id',
-  `parking_place` varchar(50)  NOT NULL
-  COMMENT '车位',
-  `price`         varchar(32)          DEFAULT NULL
-  COMMENT '价格',
-  `state`         varchar(2)           DEFAULT NULL
-  COMMENT '状态',
-  PRIMARY KEY (`order_id`) USING BTREE
+CREATE TABLE `order_info`
+(
+    `order_id`      int(11)     NOT NULL AUTO_INCREMENT
+        COMMENT '主键',
+    `gmt_create`    datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `gmt_pay`       varchar(50)          DEFAULT NULL,
+    `user_id`       varchar(50) NOT NULL
+        COMMENT '用户id',
+    `qr_code`       BLOB
+        COMMENT '二维码',
+    `parking_name`  varchar(32) NOT NULL DEFAULT ''
+        COMMENT '停车场名',
+    `parking_id`    varchar(50) NOT NULL
+        COMMENT '停车场id',
+    `parking_place` varchar(50) NOT NULL
+        COMMENT '车位',
+    `price`         varchar(32)          DEFAULT NULL
+        COMMENT '价格',
+    `state`         varchar(2)           DEFAULT NULL
+        COMMENT '状态',
+    PRIMARY KEY (`order_id`) USING BTREE
 )
-  ENGINE = InnoDB
-  AUTO_INCREMENT = 7
-  DEFAULT CHARSET = utf8
-  ROW_FORMAT = DYNAMIC
-  COMMENT = '订单信息表';
+    ENGINE = InnoDB
+    AUTO_INCREMENT = 7
+    DEFAULT CHARSET = utf8
+    ROW_FORMAT = DYNAMIC
+    COMMENT = '订单信息表';
 
 /*Data for the table `order_info` */
 
@@ -71,21 +73,22 @@ CREATE TABLE `order_info` (
 
 DROP TABLE IF EXISTS `sys_authorities`;
 
-CREATE TABLE `sys_authorities` (
-  `id`           int(11)     NOT NULL AUTO_INCREMENT
-  COMMENT '主键',
-  `gmt_create`   datetime(6) NOT NULL,
-  `gmt_modified` datetime(6)          DEFAULT NULL,
-  `user_id`      varchar(50) NOT NULL
-  COMMENT '用户id',
-  `authority`    varchar(50) NOT NULL
-  COMMENT '用户角色（默认ROLE_USER）',
-  PRIMARY KEY (`id`) USING BTREE
+CREATE TABLE `sys_authorities`
+(
+    `id`           int(11)     NOT NULL AUTO_INCREMENT
+        COMMENT '主键',
+    `gmt_create`   datetime(6) NOT NULL,
+    `gmt_modified` datetime(6) DEFAULT NULL,
+    `user_id`      varchar(50) NOT NULL
+        COMMENT '用户id',
+    `authority`    varchar(50) NOT NULL
+        COMMENT '用户角色（默认ROLE_USER）',
+    PRIMARY KEY (`id`) USING BTREE
 )
-  ENGINE = InnoDB
-  AUTO_INCREMENT = 2
-  DEFAULT CHARSET = utf8
-  ROW_FORMAT = DYNAMIC;
+    ENGINE = InnoDB
+    AUTO_INCREMENT = 2
+    DEFAULT CHARSET = utf8
+    ROW_FORMAT = DYNAMIC;
 
 /*Data for the table `sys_authorities` */
 
@@ -96,23 +99,24 @@ values (1, '2019-02-22 09:08:22.000000', '2019-02-22 09:08:22.000000', 'qpDdvw5v
 
 DROP TABLE IF EXISTS `sys_user`;
 
-CREATE TABLE `sys_user` (
-  `id`           int(11)      NOT NULL AUTO_INCREMENT
-  COMMENT '主键',
-  `gmt_create`   datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `gmt_modified` datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `user_id`      varchar(50)  NOT NULL
-  COMMENT '用户id',
-  `password`     varchar(255) NOT NULL
-  COMMENT '用户密码',
-  `enabled`      tinyint(1)   NOT NULL
-  COMMENT '是否启用(0未启用1启用）',
-  PRIMARY KEY (`id`) USING BTREE
+CREATE TABLE `sys_user`
+(
+    `id`           int(11)      NOT NULL AUTO_INCREMENT
+        COMMENT '主键',
+    `gmt_create`   datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `gmt_modified` datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `user_id`      varchar(50)  NOT NULL
+        COMMENT '用户id',
+    `password`     varchar(255) NOT NULL
+        COMMENT '用户密码',
+    `enabled`      tinyint(1)   NOT NULL
+        COMMENT '是否启用(0未启用1启用）',
+    PRIMARY KEY (`id`) USING BTREE
 )
-  ENGINE = InnoDB
-  AUTO_INCREMENT = 8
-  DEFAULT CHARSET = utf8
-  ROW_FORMAT = DYNAMIC;
+    ENGINE = InnoDB
+    AUTO_INCREMENT = 8
+    DEFAULT CHARSET = utf8
+    ROW_FORMAT = DYNAMIC;
 
 /*Data for the table `sys_user` */
 
@@ -128,44 +132,45 @@ values (7,
 
 DROP TABLE IF EXISTS `sys_user_info`;
 
-CREATE TABLE `sys_user_info` (
-  `id`            int(11)     NOT NULL AUTO_INCREMENT
-  COMMENT '主键',
-  `gmt_create`    datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `gmt_modified`  datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `user_id`       varchar(50) NOT NULL
-  COMMENT '用户id',
-  `user_name`     varchar(32) NOT NULL DEFAULT ''
-  COMMENT '用户名',
-  `gender`        tinyint(1)  NOT NULL
-  COMMENT '性别(0女1男)',
-  `age`           int(3)               DEFAULT NULL
-  COMMENT '年龄',
-  `birthday`      datetime             DEFAULT CURRENT_TIMESTAMP
-  COMMENT '生日',
-  `address`       varchar(100)         DEFAULT NULL
-  COMMENT '地址',
-  `user_type`     varchar(2)           DEFAULT NULL
-  COMMENT '用户类型',
-  `real_name`     varchar(32)          DEFAULT NULL
-  COMMENT '真实姓名',
-  `qq`            varchar(14)          DEFAULT NULL
-  COMMENT 'QQ',
-  `email`         varchar(100)         DEFAULT NULL
-  COMMENT '电子邮箱',
-  `tel`           varchar(255)         DEFAULT NULL
-  COMMENT '联系电话',
-  `license_plate` varchar(100)         DEFAULT NULL
-  COMMENT '车牌',
-  `vehicle_type`  varchar(100)         DEFAULT NULL
-  COMMENT '车型',
-  PRIMARY KEY (`id`) USING BTREE
+CREATE TABLE `sys_user_info`
+(
+    `id`            int(11)     NOT NULL AUTO_INCREMENT
+        COMMENT '主键',
+    `gmt_create`    datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `gmt_modified`  datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `user_id`       varchar(50) NOT NULL
+        COMMENT '用户id',
+    `user_name`     varchar(32) NOT NULL DEFAULT ''
+        COMMENT '用户名',
+    `gender`        tinyint(1)  NOT NULL
+        COMMENT '性别(0女1男)',
+    `age`           int(3)               DEFAULT NULL
+        COMMENT '年龄',
+    `birthday`      datetime             DEFAULT CURRENT_TIMESTAMP
+        COMMENT '生日',
+    `address`       varchar(100)         DEFAULT NULL
+        COMMENT '地址',
+    `user_type`     varchar(2)           DEFAULT NULL
+        COMMENT '用户类型',
+    `real_name`     varchar(32)          DEFAULT NULL
+        COMMENT '真实姓名',
+    `qq`            varchar(14)          DEFAULT NULL
+        COMMENT 'QQ',
+    `email`         varchar(100)         DEFAULT NULL
+        COMMENT '电子邮箱',
+    `tel`           varchar(255)         DEFAULT NULL
+        COMMENT '联系电话',
+    `license_plate` varchar(100)         DEFAULT NULL
+        COMMENT '车牌',
+    `vehicle_type`  varchar(100)         DEFAULT NULL
+        COMMENT '车型',
+    PRIMARY KEY (`id`) USING BTREE
 )
-  ENGINE = InnoDB
-  AUTO_INCREMENT = 8
-  DEFAULT CHARSET = utf8
-  ROW_FORMAT = DYNAMIC
-  COMMENT = '用户信息表';
+    ENGINE = InnoDB
+    AUTO_INCREMENT = 8
+    DEFAULT CHARSET = utf8
+    ROW_FORMAT = DYNAMIC
+    COMMENT = '用户信息表';
 
 /*Data for the table `sys_user_info` */
 

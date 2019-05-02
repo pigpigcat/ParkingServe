@@ -23,11 +23,16 @@
         where order_id = #{orderId,jdbcType=INTEGER}
     </select>
     <select id="query_qrCode" resultType="com.github.domain.OrderInfo" parameterType="com.github.domain.OrderInfo">
-        select * from order_info where order_id = #{orderId,jdbcType=INTEGER}
+        select *
+        from order_info
+        where order_id = #{orderId,jdbcType=INTEGER}
     </select>
-    <update id="orderPay"  parameterType="com.github.domain.OrderInfo">
-        update order_info set state= #{state,jdbcType=VARCHAR},gmt_pay= #{gmtPay,jdbcType=VARCHAR}
-        ,qr_code = #{qrCode,jdbcType=VARCHAR} where order_id = #{orderId,jdbcType=INTEGER} 
+    <update id="orderPay" parameterType="com.github.domain.OrderInfo">
+        update order_info
+        set state= #{state,jdbcType=VARCHAR}
+          , gmt_pay= #{gmtPay,jdbcType=VARCHAR}
+          , qr_code = #{qrCode,jdbcType=VARCHAR}
+        where order_id = #{orderId,jdbcType=INTEGER}
     </update>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete
@@ -53,6 +58,20 @@
                 #{parkingPlace,jdbcType=VARCHAR},
                 #{price,jdbcType=VARCHAR},
                 #{state,jdbcType=VARCHAR})
+    </insert>
+    <insert id="doOrder">
+        insert into order_info (user_id,
+                                parking_name,
+                                parking_id,
+                                parking_place,
+                                price,
+                                state)
+        values (#{userInfo.userId,jdbcType=VARCHAR},
+                #{marker.address,jdbcType=VARCHAR},
+                #{marker.id,jdbcType=VARCHAR},
+                #{marker.parkingPlace,jdbcType=VARCHAR},
+                5,
+                1)
     </insert>
     <insert id="insertSelective" parameterType="com.github.domain.OrderInfo">
         insert into order_info
@@ -157,4 +176,12 @@
             state         = #{state,jdbcType=VARCHAR}
         where order_id = #{orderId,jdbcType=INTEGER}
     </update>
+    <select id="orderInfoList" resultMap="BaseResultMap">
+        select *
+        from order_info
+        where user_id = #{userInfo.userId,jdbcType=VARCHAR}
+        <if test="state != 0">
+            and state = #{state,jdbcType=VARCHAR}
+        </if>
+    </select>
 </mapper>
