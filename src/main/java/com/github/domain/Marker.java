@@ -35,6 +35,8 @@ public class Marker {
 
     private String adname;
 
+    private String parkingPlace;
+
     public String getId() {
         return id;
     }
@@ -107,22 +109,31 @@ public class Marker {
         this.adname = adname;
     }
 
+    public String getParkingPlace() {
+        return parkingPlace;
+    }
+
+    public void setParkingPlace(String parkingPlace) {
+        this.parkingPlace = parkingPlace;
+    }
+
     public Marker() {
         iconPath = "/static/app-plus/location@3x.png";
     }
 
     @Override
     public String toString() {
-        return new StringJoiner(", ", Marker.class.getSimpleName() + "[", "]")
-                .add("id='" + id + "'")
-                .add("longitude='" + longitude + "'")
-                .add("latitude='" + latitude + "'")
-                .add("iconPath='" + iconPath + "'")
-                .add("label=" + label)
-                .add("address='" + address + "'")
-                .add("pname='" + pname + "'")
-                .add("cityname='" + cityname + "'")
-                .add("adname='" + adname + "'")
-                .toString();
+        return "Marker{" +
+                "id='" + id + '\'' +
+                ", longitude='" + longitude + '\'' +
+                ", latitude='" + latitude + '\'' +
+                ", iconPath='" + iconPath + '\'' +
+                ", label=" + label +
+                ", address='" + address + '\'' +
+                ", pname='" + pname + '\'' +
+                ", cityname='" + cityname + '\'' +
+                ", adname='" + adname + '\'' +
+                ", parkingPlace='" + parkingPlace + '\'' +
+                '}';
     }
 }

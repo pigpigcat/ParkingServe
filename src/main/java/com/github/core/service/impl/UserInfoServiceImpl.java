@@ -53,7 +53,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         if (userInfo1 == null)
             return Result.failure(ResultCode.FORBIDDEN);
         else
-            return Result.success(userInfo);
+            return Result.success(userInfo1);
     }
 
     @Override
