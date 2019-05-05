@@ -32,5 +32,8 @@ public interface UserInfoMapper {
     UserInfo getUserByName(String userName);
 
     UserInfo signOn(UserInfo userInfo);
+    
+
+    UserInfo getUserInfo(UserInfo userInfo);
 
 }

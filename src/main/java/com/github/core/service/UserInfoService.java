@@ -28,4 +28,6 @@ public interface UserInfoService {
      * @return
      */
     Result signUp(UserInfo userInfo);
+    
+    UserInfo getUserInfo(UserInfo userInfo);
 }
