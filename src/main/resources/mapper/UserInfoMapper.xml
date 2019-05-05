@@ -263,5 +263,12 @@
           and tel = #{tel,jdbcType=VARCHAR}
           and password = #{password,jdbcType=VARCHAR}
     </select>
+     <select id="getUserInfo" resultType="com.github.core.domain.UserInfo" parameterType="com.github.core.domain.UserInfo">
+        select *
+        from sys_user_info a,
+             sys_user b
+        where a.user_id = b.user_id
+          and a.user_id = #{userId,jdbcType=VARCHAR}
+    </select>
 
 </mapper>
