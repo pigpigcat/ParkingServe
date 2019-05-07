@@ -1,6 +1,7 @@
 package com.github.web;
 
 import com.alibaba.fastjson.JSON;
+import com.alipay.api.AlipayApiException;
 import com.github.core.domain.UserInfo;
 import com.github.core.pojo.Result;
 import com.github.core.service.UserInfoService;
@@ -9,6 +10,7 @@ import com.github.domain.OrderInfo;
 import com.github.domain.UniAppMapBean;
 import com.github.service.OrderService;
 import com.github.util.AMapUtils;
+import com.github.util.AliPayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -80,5 +82,10 @@ public class ParkingController {
     public @ResponseBody
     OrderInfo queryOrder(@RequestBody OrderInfo orderInfo) {
         return orderService.query_qrCode(orderInfo);
+    }
+
+    @RequestMapping("aliPay")
+    public String aliPay() throws AlipayApiException {
+        return AliPayUtils.init("14999.00","MacBook Pro");
     }
 }

@@ -22,24 +22,25 @@ public class AliPayUtils {
 
     private static final String PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkPWIlJo8A4GsyqBfD2p2tM8iz6E1a1gc6E4a57RU43eFc8MQU30N+DutegJeCB1J78NoR8a3euGXuO1a4Zul/Wh7G7nL4ei5PwGuYn1cYvI1Ipc8pTSAowockejo93lFMc7XWYL3dl+exsI+3HOnYHFgboWgQqe5YZz76GgkSvhqxy6XwsGyAUVD0LhWgIVT6BjGGwu7DQ1R/Bb90vpC9YbhS34P3WjabCIkmWNwxmyn/oNRuo8i74O//+cm49ozDEkMhDdR2jMjBxywA0U/WTNinOGvY0QC/rHuucTbwhhqQHBpp16FU6S+8OnWABCsQqK9UY4W/VweWYit4D+oTwIDAQAB";
 
-    static void init() throws AlipayApiException {
+    public static String init(String totalAmount, String subject) throws AlipayApiException {
         // 初始化请求客户端，其中封装了签名、请求、验签的功能
         AlipayClient alipayClient = new DefaultAlipayClient(SERVER_URL, APP_ID, APP_PRIVATE_KEY, "json", "UTF-8", PUBLIC_KEY, "RSA2");
         // 根据接口名初始化对应的请求类，其中封装了具体的接口名
         AlipayTradePrecreateRequest request = new AlipayTradePrecreateRequest();
         // 通过创建接口模型，可快速传入所需请求参数
         AlipayTradePrecreateModel model = new AlipayTradePrecreateModel();
-        request.setBizModel(model);
         model.setOutTradeNo(Long.toString(System.currentTimeMillis()));
-        model.setTotalAmount("88.88");
-        model.setSubject("Iphone6 16G");
+        model.setTotalAmount(totalAmount);
+        model.setSubject(subject);
+        request.setBizModel(model);
         // 通过执行请求，可获取所有返回报文（getBody()），也可通过具体某个出参获取具体返回参数（例如：getQrCode()）
         AlipayTradePrecreateResponse response = alipayClient.execute(request);
         System.out.println(response.getBody());
         System.out.println(response.getQrCode());
+        return response.getQrCode();
     }
 
     public static void main(String[] args) throws AlipayApiException {
-        AliPayUtils.init();
+        AliPayUtils.init("14999.00", "MacBook Pro");
     }
 }
