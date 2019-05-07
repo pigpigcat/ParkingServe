@@ -76,4 +76,10 @@ public class UserInfoServiceImpl implements UserInfoService {
             return Result.failure(ResultCode.FORBIDDEN);
         }
     }
+
+	@Override
+	public UserInfo getUserInfo(UserInfo userInfo) {
+		// TODO Auto-generated method stub
+		return userInfoMapper.getUserInfo(userInfo);
+	}
 }

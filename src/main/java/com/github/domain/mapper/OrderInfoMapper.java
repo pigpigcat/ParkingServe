@@ -27,4 +27,6 @@ public interface OrderInfoMapper {
     OrderInfo query_qrCode(OrderInfo orderInfo);
 
     List<OrderInfo> orderInfoList(@Param("userInfo") UserInfo userInfo, @Param("state") String state);
+
+	void orderCancel(OrderInfo orderInfo);
 }

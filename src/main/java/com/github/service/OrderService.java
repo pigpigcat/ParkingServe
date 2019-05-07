@@ -22,4 +22,6 @@ public interface OrderService {
     OrderInfo query_qrCode(OrderInfo orderInfo);
 
     List<OrderInfo> orderInfoList(UserInfo userInfo, String state);
+
+	Result orderCancel(OrderInfo orderInfo);
 }

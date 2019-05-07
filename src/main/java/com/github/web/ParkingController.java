@@ -53,7 +53,11 @@ public class ParkingController {
     public Result userLogin(@RequestBody UserInfo userInfo) {
         return userInfoService.signOn(userInfo);
     }
-
+    @RequestMapping("user/getUserInfo")
+    public Result getUserInfo(@RequestBody UserInfo userInfo) {
+        return userInfoService.signOn(userInfo);
+    }
+    
     @RequestMapping("doOrder")
     public Result doOrder(@RequestBody String body) {
         Map map = JSON.parseObject(body, Map.class);
@@ -78,6 +82,11 @@ public class ParkingController {
         return orderService.orderPay(orderInfo);
     }
 
+    @RequestMapping("order/cancel")
+    public Result orderCancel(@RequestBody OrderInfo orderInfo) {
+        return orderService.orderCancel(orderInfo);
+    }
+    
     @RequestMapping("order/queryOrder")
     public @ResponseBody
     OrderInfo queryOrder(@RequestBody OrderInfo orderInfo) {

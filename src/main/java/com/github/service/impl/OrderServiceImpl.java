@@ -55,4 +55,12 @@ public class OrderServiceImpl implements OrderService {
             return Result.failure(ResultCode.FORBIDDEN);
         }
     }
+
+	@Override
+	public Result orderCancel(OrderInfo orderInfo) {
+		// TODO Auto-generated method stub
+		 orderInfo.setState("9");
+	     orderInfoMapper.orderCancel(orderInfo);
+	     return Result.success();
+	}
 }
